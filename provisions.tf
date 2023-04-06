@@ -5,7 +5,7 @@ provider "aws" {
 }
 locals {
   common_tags = {
-    Name = "RemoteAccess"
+    Name = "gitbranch_dev"
   }
 }
 data "aws_security_group" "testsg"{
