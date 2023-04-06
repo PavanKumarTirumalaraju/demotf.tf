@@ -21,7 +21,7 @@ resource "aws_instance" "web" {
   tags            = local.common_tags
   
 
-
+}
 
 
 
