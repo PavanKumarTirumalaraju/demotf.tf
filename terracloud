@@ -1,3 +1,8 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
+
 resource "aws_instance" "ec2_instance" {
 
   ami                    = "ami-05e411cf591b5c9f6"
