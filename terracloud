@@ -6,49 +6,8 @@ provider "aws" {
 resource "aws_instance" "ec2_instance" {
 
   ami                    = "ami-05e411cf591b5c9f6"
-  instance_type          = var.maps["us-east-1"]
-  key_name               = "day1terra"
-  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+  instance_type          = "t2.micro"
+  
 
 }
 
-resource "aws_security_group" "allow_ssh" {
-
-  name = "Securitygroup"
-
-
-  ingress {
-    description = "ssh access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-
-  }
-}
-
-output "security-id_publicinstance_ip" {
-  value = aws_instance.ec2_instance.public_ip
-}
-output "aws_scg" {
-  value = aws_security_group.allow_ssh.id
-
-}
-
-resource "aws_instance" "ec2_instance123" {
-
-  ami                    = "ami-05e411cf591b5c9f6"
-  instance_type          = var.lists[0]
-  key_name               = "day1terra"
-  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-
-}
-
-resource "aws_instance" "ec2_instance12345" {
-   
-  ami                    = "ami-05e411cf591b5c9f6"
-  instance_type          = var.lists[0]
-  key_name               = "day1terra"
-  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-  count = 2
-}
